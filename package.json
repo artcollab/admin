@@ -21,11 +21,20 @@
     "test:build": "node test/lib/wrapper build ava test/{common,build}/**/*.test.js",
     "dev:vite": "vite",
     "build:vite": "vite build",
-    "serve:vite": "vite preview"
+    "serve:vite": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.8",
     "@roxi/routify": "^2.14.0",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addon-svelte-csf": "^1.1.0",
+    "@storybook/svelte": "^6.4.19",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.10",
+    "babel-loader": "^8.2.4",
     "cross-env": "^7.0.3",
     "fkill": "^7.1.0",
     "mdsvex": "^0.8.9",
@@ -34,8 +43,9 @@
     "remark-slug": "^6.0.0",
     "routify-plugin-frontmatter": "^1.0.1",
     "spassr": "^2.4.1-0",
-    "svelte": "^3.35.0",
+    "svelte": "^3.46.4",
     "svelte-hmr": "^0.14.4",
+    "svelte-loader": "^3.1.2",
     "svelte-preprocess": "^4.6.3",
     "vite": "^2.3.7",
     "vite-main-js": "^0.0.1"
@@ -66,5 +76,6 @@
   },
   "workspaces": [
     "../../*"
-  ]
+  ],
+  "dependencies": {}
 }
