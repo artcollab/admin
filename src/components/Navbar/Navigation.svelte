@@ -2,8 +2,8 @@
   import { url, isActive, layout } from "@roxi/routify";
   import { user, logout, authenticating } from "#auth/store";
 
-  import List, { Item, Text, Graphic, Separator, Subheader } from "@smui/list";
-  import Drawer, { Content, Header, Title, Subtitle } from "@smui/drawer";
+  import List, { Item, Text, Graphic, Separator } from "@smui/list";
+  import { Content } from "@smui/drawer";
 
   export let items = $layout.children;
   $: getClass = (path) => ($isActive(path) ? true : false);
