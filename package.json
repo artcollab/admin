@@ -26,7 +26,7 @@
     "build-storybook": "build-storybook"
   },
   "imports": {
-    "#routify/*": ".routify/*.js"
+    "#components/*": "./src/components/*"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
