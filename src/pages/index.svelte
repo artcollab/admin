@@ -5,12 +5,13 @@
 </script>
 
 <LayoutGrid>
-  <Cell span={12} />
-  <div class=".message">
+  <Cell span={12}>
     <Card>
-      <Content>Woah this is a message!</Content>
+      <Content>
+        <div class="mdc-typography--body1">Woah this is a message!</div>
+      </Content>
     </Card>
-  </div>
+  </Cell>
   <Cell span={6}>
     <Card>
       <Content>
@@ -19,3 +20,7 @@
     </Card>
   </Cell>
 </LayoutGrid>
+
+<style type="text/scss">
+  @import "index.scss";
+</style>
