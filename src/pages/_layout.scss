@@ -3,34 +3,23 @@
 }
 
 aside {
-  position: relative;
-  z-index: 2;
+  display: flex;
+  width: 256px;
+  height: 5vh;
+  justify-content: left;
 }
 
 section {
   display: block;
 }
+#app {
+  display: flex;
+  justify-content: right;
+}
 
 .container {
   display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: calc(100vw - 256px);
   height: 100%;
-}
-
-@media only screen and (min-width: 840px) {
-  .container {
-    margin-left: 256px;
-    max-width: calc(100% - 256px);
-    min-width: 60vw;
-  }
-}
-
-@media only screen and (max-width: 840px) {
-  .container {
-    margin-left: 0px;
-    width: 100%;
-  }
+  justify-content: right;
 }

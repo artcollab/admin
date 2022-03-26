@@ -27,9 +27,11 @@
   }} />
 
 <div id="app">
-  <aside>
-    <NavBar {colappseble} />
-  </aside>
+  <section>
+    <aside>
+      <NavBar {colappseble} />
+    </aside>
+  </section>
   <section>
     <header />
     <div class="container">
