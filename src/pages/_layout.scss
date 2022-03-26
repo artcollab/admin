@@ -7,27 +7,12 @@ body {
   min-width: 600px;
 }
 aside {
-  width: 50%;
-  min-width: 300px;
   position: relative;
-  font-size: 15px;
   z-index: 2;
 }
 
 section {
   display: block;
-}
-
-.page {
-  position: sticky;
-  top: 0;
-  width: 50vw;
-  height: 50vw;
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
 }
 
 .container {
