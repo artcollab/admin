@@ -21,7 +21,9 @@ module.exports = {
     dedupe: ["@roxi/routify"],
     alias: [
       { find: "#components", replacement: "/src/components" },
+      { find: "#auth", replacement: "/src/components/Auth" },
       { find: "#routify", replacement: "/.routify" },
+      { find: "#sb", replacement: "/src/stories" },
     ],
   },
   plugins: [
