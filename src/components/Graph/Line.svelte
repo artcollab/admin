@@ -53,5 +53,5 @@
   {data}
   width={500}
   height={250}
-  options={{ responsive: true, maintainAspectRatio: true }}
+  options={{ responsive: true, maintainAspectRatio: false }}
 />
