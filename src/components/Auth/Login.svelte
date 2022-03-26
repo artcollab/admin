@@ -3,9 +3,9 @@
   import CircularProgress from "@smui/circular-progress";
 
   import LayoutGrid, { Cell } from "@smui/layout-grid";
-  import Textfield from "@smui/textfield/index";
+  import Textfield from "@smui/textfield";
   import Icon from "@smui/textfield/icon";
-  import HelperText from "@smui/textfield/helper-text/index";
+  import HelperText from "@smui/textfield/helper-text";
   import Button, { Label } from "@smui/button";
 
   import Card from "@smui/card";

@@ -19,7 +19,6 @@ module.exports = {
     dedupe: ["@roxi/routify"],
     alias: [
       { find: "#components", replacement: "/src/components" },
-      { find: "@smui", replacement: "/node_modules/@smui" },
       { find: "#auth", replacement: "/src/components/Auth" },
       { find: "#user", replacement: "/src/components/User" },
       { find: "#navbar", replacement: "/src/components/Navbar" },
