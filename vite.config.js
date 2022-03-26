@@ -1,11 +1,11 @@
-const { appConfig } = require('./package.json')
-const viteMainJs = require('vite-main-js')
-const autoPreprocess = require('svelte-preprocess')
-const slug = require('remark-slug')
-const { mdsvex } = require('mdsvex')
-const { svelte } = require('@sveltejs/vite-plugin-svelte')
-const { port } = appConfig
-const production = process.env.NODE_ENV === 'production'
+const { appConfig } = require("./package.json");
+const viteMainJs = require("vite-main-js");
+const autoPreprocess = require("svelte-preprocess");
+const slug = require("remark-slug");
+const { mdsvex } = require("mdsvex");
+const { svelte } = require("@sveltejs/vite-plugin-svelte");
+const { port } = appConfig;
+const production = process.env.NODE_ENV === "production";
 module.exports = {
   server: {
     port: port,
@@ -15,10 +15,14 @@ module.exports = {
     cssCodeSplit: false,
   },
   optimizeDeps: {
-    exclude: ['@roxi/routify'],
+    exclude: ["@roxi/routify"],
   },
   resolve: {
-    dedupe: ['@roxi/routify'],
+    dedupe: ["@roxi/routify"],
+    alias: {
+      "#root": __dirname,
+      "#routify/*": ".routify/*.js",
+    },
   },
   plugins: [
     viteMainJs(),
@@ -32,14 +36,14 @@ module.exports = {
         mdsvex({
           remarkPlugins: [slug],
           layout: {
-            blog: 'src/components/Card.svelte',
+            blog: "src/components/Card.svelte",
           },
-          extension: 'md',
+          extension: "md",
         }),
       ],
       emitCss: true,
       hot: !production,
-      extensions: ['.md', '.svelte'],
+      extensions: [".md", ".svelte"],
     }),
   ],
-}
+};
