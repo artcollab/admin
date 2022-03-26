@@ -5,11 +5,17 @@
 </script>
 
 {#if $authenticating}
-  <CircularProgress style="height: 16px; width: 16px;" indeterminate />
+  <div>
+    <CircularProgress style="height: 16px; width: 16px;" indeterminate />
+  </div>
 {:else if $user}
   <Title>Yoav Levi</Title>
-  <Subtitle>{$user.username}</Subtitle>
+  <Subtitle>{$user.email}</Subtitle>
 {:else}
   <Title>Hello!</Title>
   <Subtitle>please login :)</Subtitle>
 {/if}
+
+<style type="text/scss">
+  @import "Link.scss";
+</style>

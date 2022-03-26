@@ -1,6 +1,6 @@
 <script>
   import { url, isActive, layout } from "@roxi/routify";
-  import { user, logout } from "#auth/store";
+  import { user, logout, authenticating } from "#auth/store";
 
   import List, { Item, Text, Graphic, Separator, Subheader } from "@smui/list";
   import Drawer, { Content, Header, Title, Subtitle } from "@smui/drawer";
@@ -34,7 +34,7 @@
         <Graphic class="material-icons" aria-hidden="true">logout</Graphic>
         <Text>Logout</Text>
       </Item>
-    {:else}
+    {:else if !user && !authenticating}
       <Item href={$url("/login")} activated={getClass("/login")}>
         <Graphic class="material-icons" aria-hidden="true">login</Graphic>
         <Text>Login</Text>
