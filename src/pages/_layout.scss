@@ -26,7 +26,8 @@ section {
 
 @media only screen and (max-width: 840px) {
   aside {
-    width: 0px;
+    width: 100%;
+    height: 0;
   }
   .container {
     width: 100%;

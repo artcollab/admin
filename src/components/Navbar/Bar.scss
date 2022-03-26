@@ -1,16 +1,19 @@
-// .button {
-//   background-color: transparent;
-//   border: none;
-//   color: white;
-// }
+.button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
-// .material-icons {
-//   font-size: 44px;
-// }
+.material-icons {
+  font-size: 44px;
+}
 
-// .right {
-//   display: flex;
-//   position: sticky;
-//   top: 0;
-//   justify-content: right;
-// }
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}

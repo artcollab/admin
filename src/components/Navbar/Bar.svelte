@@ -8,8 +8,8 @@
   export let open = true;
 </script>
 
-<!-- <div class="right">
-  {#if colappseble}
+{#if colappseble}
+  <div class="top-bar">
     <button
       class="button"
       on:click={() => {
@@ -18,7 +18,8 @@
     >
       <i class="material-icons">menu</i>
     </button>
-  {/if} -->
+  </div>
+{/if}
 <Drawer {colappseble} {open}>
   <nav>
     <Header>
@@ -28,7 +29,6 @@
   </nav>
 </Drawer>
 
-<!-- </div> -->
 <style type="text/scss">
   @import "Bar.scss";
 </style>
