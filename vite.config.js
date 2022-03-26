@@ -1,9 +1,7 @@
-const { appConfig } = require("./package.json");
-const viteMainJs = require("vite-main-js");
-const autoPreprocess = require("svelte-preprocess");
-const slug = require("remark-slug");
-const { mdsvex } = require("mdsvex");
-const { svelte } = require("@sveltejs/vite-plugin-svelte");
+import { appConfig } from "./package.json";
+import viteMainJs from "vite-main-js";
+import autoPreprocess from "svelte-preprocess";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 const { port } = appConfig;
 const production = process.env.NODE_ENV === "production";
 module.exports = {
