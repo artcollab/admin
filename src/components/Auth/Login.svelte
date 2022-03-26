@@ -8,13 +8,7 @@
   import HelperText from "@smui/textfield/helper-text/index";
   import Button, { Label } from "@smui/button";
 
-  import Card, {
-    Content,
-    PrimaryAction,
-    Actions,
-    ActionButtons,
-    ActionIcons,
-  } from "@smui/card";
+  import Card from "@smui/card";
 
   let invalid = false;
   let email = "user@example.com";
