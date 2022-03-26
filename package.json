@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@material/typography": "^13.0.0",
     "@roxi/routify": "^2.14.0",
     "@smui/button": "^6.0.0-beta.15",
     "@smui/card": "^6.0.0-beta.15",
@@ -93,8 +94,5 @@
   },
   "ava": {
     "verbose": true
-  },
-  "workspaces": [
-    "../../*"
-  ]
+  }
 }

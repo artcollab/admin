@@ -1,12 +1,12 @@
 <script>
   import { user, authenticating } from "./store";
   import { Title, Subtitle } from "@smui/drawer";
-  import CircularProgress from "@smui/circular-progress";
+  import Circle from "#components/Progress/Circle.svelte";
 </script>
 
 {#if $authenticating}
   <div>
-    <CircularProgress style="height: 16px; width: 16px;" indeterminate />
+    <Circle size={"16px"} />
   </div>
 {:else if $user}
   <Title>Yoav Levi</Title>

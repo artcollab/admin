@@ -7,9 +7,10 @@
       "#auth/*": ["./src/components/Auth/*"],
       "#navbar/*": ["./src/components/Navbar/*"],
       "#pages/*": ["./src/pages/*"],
+      "#graph/*": ["./src/components/Graph/*"],
+      "#progress/*": ["./src/components/Progress/*"],
       "#theme/*": ["./src/theme/*"],
       "#sb/*": ["./src/stories/*"],
-      "@smui/*": ["./node_modules/@smui/*"],
       "#routify/*": ["./.routify/*"]
     }
   }

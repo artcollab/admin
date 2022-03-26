@@ -1,5 +1,5 @@
 <script context="module">
-  import Viewport from "../../node_modules/svelte-viewport-info";
+  import Viewport from "svelte-viewport-info";
 </script>
 
 <script>
@@ -9,7 +9,7 @@
   import { authenticating, user } from "#auth/store.js";
   import { ready } from "@roxi/routify";
 
-  import CircularProgress from "@smui/circular-progress";
+  import Circle from "#progress/Circle.svelte";
 
   const MOBILE_MAX_SIZE = 800;
   let colappseble = Viewport.Width < MOBILE_MAX_SIZE ? true : false;
@@ -36,7 +36,7 @@
       {#if $user}
         <slot />
       {:else if $authenticating}
-        <CircularProgress style="height: 32px; width: 32px;" indeterminate />
+        <Circle />
       {:else}
         <Login />
       {/if}
