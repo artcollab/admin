@@ -14,12 +14,11 @@ section {
 }
 #app {
   display: flex;
-  justify-content: right;
 }
 
 .container {
   display: flex;
   width: calc(100vw - 256px);
   height: 100%;
-  justify-content: right;
+  justify-content: center;
 }
