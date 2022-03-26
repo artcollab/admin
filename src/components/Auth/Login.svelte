@@ -15,7 +15,7 @@
   let password = "pass";
 </script>
 
-<div class="container">
+<div class="login">
   <Card>
     <LayoutGrid>
       <Cell span={6}>
