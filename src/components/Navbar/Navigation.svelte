@@ -10,6 +10,9 @@
 
   let icons = new Map();
   icons.set("users", "people");
+  icons.set("posts", "feed");
+  icons.set("reports", "report_problem");
+  icons.set("analytics", "inventory");
 </script>
 
 <Content>
