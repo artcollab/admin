@@ -44,18 +44,14 @@
   <Head>
     <Row>
       <Cell numeric>ID</Cell>
-      <Cell style="width: 100%;">Title</Cell>
-      <Cell>Completed</Cell>
-      <Cell numeric>User ID</Cell>
+      <Cell>Title</Cell>
     </Row>
   </Head>
   <Body>
     {#each slice as item (item.id)}
       <Row>
         <Cell numeric>{item.id}</Cell>
-        <Cell>{item.title}</Cell>
-        <Cell>{item.completed ? "Yes" : "No"}</Cell>
-        <Cell numeric>{item.userId}</Cell>
+        <Cell>{item.title.slice(0, 20)}</Cell>
       </Row>
     {/each}
   </Body>
