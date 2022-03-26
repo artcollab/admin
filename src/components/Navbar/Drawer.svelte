@@ -1,21 +1,15 @@
 <script>
   import Drawer from "@smui/drawer";
+  import OutClick from "svelte-outclick";
 
   export let colappseble = true;
-  let open = false;
+  export let open = false;
 
   $: open = colappseble ? false : true;
 </script>
 
 {#if colappseble}
-  <Drawer
-    variant="modal"
-    bind:open
-    on:blur={() => {}}
-    on:mouseout={() => {
-      open = false;
-    }}
-  >
+  <Drawer variant="modal" bind:open>
     <slot />
   </Drawer>
 {:else}

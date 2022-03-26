@@ -5,11 +5,21 @@
   import { Header } from "@smui/drawer";
 
   export let colappseble = false;
-  let open = true;
+  export let open = true;
 </script>
 
-<div>
-  <Drawer {colappseble}>
+<div class="right">
+  {#if colappseble}
+    <button
+      class="button"
+      on:click={() => {
+        open = !open;
+      }}
+    >
+      <i class="material-icons">menu</i>
+    </button>
+  {/if}
+  <Drawer {colappseble} {open}>
     <nav>
       <Header>
         <Link />
@@ -18,3 +28,7 @@
     </nav>
   </Drawer>
 </div>
+
+<style type="text/scss">
+  @import "Bar.scss";
+</style>
