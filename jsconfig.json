@@ -6,7 +6,8 @@
       "#components/*": ["./src/components/*"],
       "#auth/*": ["./src/components/Auth/*"],
       "#navbar/*": ["./src/components/Navbar/*"],
-      "#sb/*": ["./stories/*"],
+      "#sb/*": ["./src/stories/*"],
+      "@smui/*": ["./node_modules/@smui/*"],
       "#routify/*": ["./.routify/*"]
     }
   }
