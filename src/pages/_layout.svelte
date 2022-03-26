@@ -1,39 +1,34 @@
 <script>
-  import NavBar from '#navbar/Bar.svelte'
+  import NavBar from "#navbar/Bar.svelte";
 
-  import Link from '#auth/Link.svelte'
+  import Login from "#auth/Login.svelte";
+  import { authenticating, user } from "#auth/store.js";
+  import { ready } from "@roxi/routify";
+
+  import CircularProgress from "@smui/circular-progress";
+
+  $: if (!$authenticating && !$user) $ready();
 </script>
 
 <div id="app">
   <aside>
-    <div>
-      <Link />
-    </div>
     <NavBar />
   </aside>
   <section>
     <header />
-    <main class="container">
-      <slot />
-    </main>
+    <div class="container">
+      {#if $user}
+        <slot />
+      {:else if $authenticating}
+        <CircularProgress style="height: 32px; width: 32px;" indeterminate />
+      {:else}
+        <Login />
+      {/if}
+    </div>
     <footer />
   </section>
 </div>
 
-<style>
-  #app {
-    display: grid;
-    grid-template-columns: 196px auto;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
-  main {
-    padding-top: 64px;
-  }
-  aside {
-    padding: 16px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
-    height: 100%;
-  }
+<style type="text/scss">
+  @import "./_layout.scss";
 </style>

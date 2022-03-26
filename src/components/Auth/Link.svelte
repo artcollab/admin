@@ -1,30 +1,15 @@
 <script>
-  import { user, authenticating } from './store'
-  import { url } from '@roxi/routify'
+  import { user, authenticating } from "./store";
+  import { Title, Subtitle } from "@smui/drawer";
+  import CircularProgress from "@smui/circular-progress";
 </script>
 
-<ul>
-  <li>
-    {#if $authenticating}
-      authenticating...
-    {:else if $user}
-      <a href={$url('/user')}>{$user.username}</a>
-    {:else}
-      <a href={$url('/login')}>Login</a>
-    {/if}
-  </li>
-</ul>
-
-<style>
-  ul.nested {
-    /* display: none; */
-    position: absolute;
-  }
-  ul.root:hover ul.nested {
-    display: block;
-  }
-  li {
-    margin-left: 6px;
-    list-style: none;
-  }
-</style>
+{#if $authenticating}
+  <CircularProgress style="height: 16px; width: 16px;" indeterminate />
+{:else if $user}
+  <Title>Yoav Levi</Title>
+  <Subtitle>{$user.username}</Subtitle>
+{:else}
+  <Title>Hello!</Title>
+  <Subtitle>please login :)</Subtitle>
+{/if}

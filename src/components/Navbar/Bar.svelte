@@ -1,12 +1,20 @@
 <script>
-  import Navigation from './Navigation.svelte'
-  import { url } from '@roxi/routify'
-  export let children
+  import Navigation from "./Navigation.svelte";
+  import Link from "#auth/Link.svelte";
+
+  import Drawer, { Header } from "@smui/drawer";
+
+  export let open = true;
+  export let children;
 </script>
 
-<nav>
-  <a href={$url('/')}>
-    <h3>My App</h3>
-  </a>
-  <Navigation {children} />
-</nav>
+<div>
+  <Drawer variant="modal" bind:open>
+    <nav>
+      <Header>
+        <Link />
+      </Header>
+      <Navigation {children} />
+    </nav>
+  </Drawer>
+</div>

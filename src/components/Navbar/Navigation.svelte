@@ -1,54 +1,44 @@
-<!--
-   Navigation component 
-   Props:
-     children=${layout.children} (optional) array of nodes
-     maxDepth=Infinite (optional) depth of descendent tree
-     explode="all"|"selected"|false (optional) explode descendents
-   Example1:
-     <Navigation />
-   Example2:
-     <Navigation maxDepth=2 children={$layout.children} />
--->
 <script>
-  import { url, isActive, layout } from '@roxi/routify'
-  export let items = $layout.children
-  export let maxDepth = Infinity
-  export let _depth = 0
-  export let explode = 'selected' // "selected", "all" or false
-  _depth++
-  $: getClass = (path) => ($isActive(path) ? 'active' : '')
-  $: shouldExplode = (path) =>
-    (explode === 'selected' && $isActive(path)) || explode === 'all'
+  import { url, isActive, layout } from "@roxi/routify";
+  import { user, logout } from "#auth/store";
+
+  import List, { Item, Text, Graphic, Separator, Subheader } from "@smui/list";
+  import Drawer, { Content, Header, Title, Subtitle } from "@smui/drawer";
+
+  export let items = $layout.children;
+  $: getClass = (path) => ($isActive(path) ? true : false);
+
+  let icons = new Map();
+  icons.set("users", "people");
 </script>
 
-<ul>
-  {#each items as { path, title, children, ...rest }}
-    <li data-nav-depth={_depth}>
-      <!-- we use $url to resolve the path  -->
-      <a href={$url(path)} class={getClass(path)}> {title}</a>
-
-      <!-- parse nested children here -->
-      {#if items && _depth < maxDepth && shouldExplode(path)}
-        <svelte:self items={children} {maxDepth} {_depth} />
-      {/if}
-    </li>
-  {/each}
-</ul>
-
-<style>
-  .active {
-    font-weight: bold;
-  }
-  ul {
-    margin-left: 0;
-  }
-  li {
-    margin-left: 12px;
-  }
-  li {
-    list-style: none;
-  }
-  a {
-    text-transform: capitalize;
-  }
-</style>
+<Content>
+  <List>
+    {#if $user}
+      <Separator />
+      <Item href={$url("")} activated={getClass("")}>
+        <Graphic class="material-icons" aria-hidden="true">home</Graphic>
+        <Text>Home</Text>
+      </Item>
+      {#each items as { path, title, children, ...rest }}
+        {#if title != "login"}
+          <Item href={$url(path)} activated={getClass(path)}>
+            <Graphic class="material-icons" aria-hidden="true"
+              >{icons.get(path.slice(1))}</Graphic
+            >
+            <Text>{title.charAt(0).toUpperCase() + title.slice(1)}</Text>
+          </Item>
+        {/if}
+      {/each}
+      <Item on:click={logout}>
+        <Graphic class="material-icons" aria-hidden="true">logout</Graphic>
+        <Text>Logout</Text>
+      </Item>
+    {:else}
+      <Item href={$url("/login")} activated={getClass("/login")}>
+        <Graphic class="material-icons" aria-hidden="true">login</Graphic>
+        <Text>Login</Text>
+      </Item>
+    {/if}
+  </List>
+</Content>
