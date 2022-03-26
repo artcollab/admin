@@ -16,6 +16,6 @@
   <Subtitle>please login :)</Subtitle>
 {/if}
 
-<style type="text/scss">
+<style lang="scss">
   @import "Link.scss";
 </style>

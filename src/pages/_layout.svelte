@@ -47,6 +47,6 @@
   </section>
 </div>
 
-<style type="text/scss">
+<style lang="scss">
   @import "_layout.scss";
 </style>

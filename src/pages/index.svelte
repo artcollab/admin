@@ -46,6 +46,6 @@
   </Cell>
 </LayoutGrid>
 
-<style type="text/scss">
+<style lang="scss">
   @import "index.scss";
 </style>

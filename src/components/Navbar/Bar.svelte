@@ -29,6 +29,6 @@
   </nav>
 </Drawer>
 
-<style type="text/scss">
+<style lang="scss">
   @import "Bar.scss";
 </style>
