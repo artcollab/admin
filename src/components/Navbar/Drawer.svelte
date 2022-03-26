@@ -1,6 +1,5 @@
 <script>
   import Drawer from "@smui/drawer";
-  import OutClick from "svelte-outclick";
 
   export let colappseble = true;
   export let open = false;

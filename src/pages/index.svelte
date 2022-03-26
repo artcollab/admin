@@ -2,6 +2,9 @@
   import LayoutGrid, { Cell } from "@smui/layout-grid";
   import Card, { Content } from "@smui/card";
   import Line from "#graph/Line.svelte";
+  import Bar from "#graph/Bar.svelte";
+  import Scatter from "#graph/Scatter.svelte";
+  import Events from "#user/Events.svelte";
 </script>
 
 <LayoutGrid>
@@ -16,6 +19,28 @@
     <Card>
       <Content>
         <Line />
+      </Content>
+    </Card>
+  </Cell>
+  <Cell span={6}>
+    <Card>
+      <Content>
+        <Bar />
+      </Content>
+    </Card>
+  </Cell>
+  <Cell span={4}>
+    <Card>
+      <Content>
+        <div class="mdc-typography--headline6">Recent events</div>
+        <Events />
+      </Content>
+    </Card>
+  </Cell>
+  <Cell span={8}>
+    <Card>
+      <Content>
+        <Scatter />
       </Content>
     </Card>
   </Cell>
