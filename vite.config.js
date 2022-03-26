@@ -19,7 +19,10 @@ module.exports = {
   },
   resolve: {
     dedupe: ["@roxi/routify"],
-    alias: [{ find: "#components", replacement: "/src/components" }],
+    alias: [
+      { find: "#components", replacement: "/src/components" },
+      { find: "#routify", replacement: "/.routify" },
+    ],
   },
   plugins: [
     viteMainJs(),

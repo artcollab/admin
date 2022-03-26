@@ -3,7 +3,8 @@
     "checkJs": true,
     "baseUrl": ".",
     "paths": {
-      "#components/*": ["./src/components/*"]
+      "#components/*": ["./src/components/*"],
+      "#routify/*": ["./.routify/*"]
     }
   }
 }
