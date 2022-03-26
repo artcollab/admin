@@ -37,11 +37,6 @@
         <Graphic class="material-icons" aria-hidden="true">logout</Graphic>
         <Text>Logout</Text>
       </Item>
-    {:else if !user && !authenticating}
-      <Item href={$url("/login")} activated={getClass("/login")}>
-        <Graphic class="material-icons" aria-hidden="true">login</Graphic>
-        <Text>Login</Text>
-      </Item>
     {/if}
   </List>
 </Content>
