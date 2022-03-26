@@ -39,13 +39,6 @@ module.exports = {
             plugins: [],
           },
         }),
-        mdsvex({
-          remarkPlugins: [slug],
-          layout: {
-            blog: "src/components/Card.svelte",
-          },
-          extension: "md",
-        }),
       ],
       emitCss: true,
       hot: !production,
