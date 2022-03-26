@@ -11,7 +11,7 @@
 
   import Circle from "#progress/Circle.svelte";
 
-  const MOBILE_MAX_SIZE = 800;
+  const MOBILE_MAX_SIZE = 840;
   let colappseble = Viewport.Width < MOBILE_MAX_SIZE ? true : false;
 
   $: if (!$authenticating && !$user) $ready();
