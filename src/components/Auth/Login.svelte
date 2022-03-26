@@ -54,7 +54,7 @@
           <div class="right">
             <Button
               on:click={() => {
-                login();
+                login(email, password);
               }}
               variant="outlined"
             >
