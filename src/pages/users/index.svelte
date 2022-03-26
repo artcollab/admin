@@ -6,9 +6,7 @@
     Cell,
     Pagination,
   } from "@smui/data-table";
-  import Select, { Option } from "@smui/select";
   import IconButton from "@smui/icon-button";
-  import { Label } from "@smui/common";
 
   type Todo = {
     id: number;
@@ -30,8 +28,6 @@
   }
 
   if (typeof fetch !== "undefined") {
-    // Slice a few off the end to show how the
-    // last page looks when it's not full.
     fetch(
       "https://gist.githubusercontent.com/hperrin/e24a4ebd9afdf2a8c283338ae5160a62/raw/dcbf8e6382db49b0dcab70b22f56b1cc444f26d4/todos.json"
     )
