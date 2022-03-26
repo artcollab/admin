@@ -5,7 +5,6 @@
   import { Header } from "@smui/drawer";
 
   export let colappseble = false;
-  export let children;
   let open = true;
 </script>
 
@@ -15,7 +14,7 @@
       <Header>
         <Link />
       </Header>
-      <Navigation {children} />
+      <Navigation />
     </nav>
   </Drawer>
 </div>
