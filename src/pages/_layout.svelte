@@ -30,5 +30,5 @@
 </div>
 
 <style type="text/scss">
-  @import "./_layout.scss";
+  @import "_layout.scss";
 </style>

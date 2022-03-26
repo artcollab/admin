@@ -24,6 +24,8 @@ module.exports = {
       { find: "@smui", replacement: "/node_modules/@smui" },
       { find: "#auth", replacement: "/src/components/Auth" },
       { find: "#navbar", replacement: "/src/components/Navbar" },
+      { find: "#pages", replacement: "/src/pages" },
+      { find: "#theme", replacement: "/src/theme" },
       { find: "#routify", replacement: "/.routify" },
       { find: "#sb", replacement: "/src/stories" },
     ],
