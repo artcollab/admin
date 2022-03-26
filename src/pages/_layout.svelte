@@ -1,3 +1,7 @@
+<script context="module">
+  import Viewport from "../../node_modules/svelte-viewport-info";
+</script>
+
 <script>
   import NavBar from "#navbar/Bar.svelte";
 
@@ -7,12 +11,24 @@
 
   import CircularProgress from "@smui/circular-progress";
 
+  const MOBILE_MAX_SIZE = 800;
+  let colappseble = Viewport.Width < MOBILE_MAX_SIZE ? true : false;
+
   $: if (!$authenticating && !$user) $ready();
 </script>
 
+<svelte:body
+  on:viewportchanged={() => {
+    if (Viewport.Width < MOBILE_MAX_SIZE) {
+      colappseble = true;
+    } else {
+      colappseble = false;
+    }
+  }} />
+
 <div id="app">
   <aside>
-    <NavBar />
+    <NavBar {colappseble} />
   </aside>
   <section>
     <header />

@@ -1,15 +1,16 @@
 <script>
   import Navigation from "./Navigation.svelte";
   import Link from "#auth/Link.svelte";
+  import Drawer from "./Drawer.svelte";
+  import { Header } from "@smui/drawer";
 
-  import Drawer, { Header } from "@smui/drawer";
-
-  export let open = true;
+  export let colappseble = false;
   export let children;
+  let open = true;
 </script>
 
 <div>
-  <Drawer variant="modal" bind:open>
+  <Drawer {colappseble}>
     <nav>
       <Header>
         <Link />
