@@ -25,9 +25,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "imports": {
-    "#routify/*": ".routify/*.js"
-  },
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@roxi/routify": "^2.14.0",
