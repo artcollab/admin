@@ -4,6 +4,3 @@
 </script>
 
 <Router {routes} />
-
-<style global>
-</style>
