@@ -5,9 +5,9 @@
     labels: ["Scatter"],
     datasets: [
       {
-        borderColor: "rgba(99,0,125, .2)",
-        backgroundColor: "rgba(99,0,125, .5)",
-        label: "V(node2)",
+        borderColor: "rgba(98,  182, 239,0.4)",
+        backgroundColor: "rgba(98,  182, 239, 1)",
+        label: "Daily vists",
         data: [
           {
             x: 1,
