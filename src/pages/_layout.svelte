@@ -1,7 +1,7 @@
 <script>
-  import NavBar from '../components/Navbar/Bar.svelte'
+  import NavBar from '#navbar/Bar.svelte'
 
-  import Link from '../components/Auth/Link.svelte'
+  import Link from '#auth/Link.svelte'
 </script>
 
 <div id="app">

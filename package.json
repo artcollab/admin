@@ -42,6 +42,7 @@
     "postcss": "^8.2.4",
     "remark-slug": "^6.0.0",
     "routify-plugin-frontmatter": "^1.0.1",
+    "sass": "^1.49.9",
     "spassr": "^2.4.1-0",
     "svelte": "^3.46.4",
     "svelte-hmr": "^0.14.4",

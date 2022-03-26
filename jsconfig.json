@@ -5,6 +5,7 @@
     "paths": {
       "#components/*": ["./src/components/*"],
       "#auth/*": ["./src/components/Auth/*"],
+      "#navbar/*": ["./src/components/Navbar/*"],
       "#sb/*": ["./stories/*"],
       "#routify/*": ["./.routify/*"]
     }

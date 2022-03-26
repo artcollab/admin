@@ -1,6 +1,6 @@
 <script>
-  import Login from '../../components/Auth/Login.svelte'
-  import { authenticating, user, logout } from '../../components/Auth/store.js'
+  import Login from '#auth/Login.svelte'
+  import { authenticating, user, logout } from '#auth/store.js'
   import { url, ready } from '@roxi/routify'
 
   /**

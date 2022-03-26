@@ -22,6 +22,7 @@ module.exports = {
     alias: [
       { find: "#components", replacement: "/src/components" },
       { find: "#auth", replacement: "/src/components/Auth" },
+      { find: "#navbar", replacement: "/src/components/Navbar" },
       { find: "#routify", replacement: "/.routify" },
       { find: "#sb", replacement: "/src/stories" },
     ],
