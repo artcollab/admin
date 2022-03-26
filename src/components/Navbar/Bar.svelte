@@ -8,7 +8,7 @@
   export let open = true;
 </script>
 
-<div class="right">
+<!-- <div class="right">
   {#if colappseble}
     <button
       class="button"
@@ -18,17 +18,17 @@
     >
       <i class="material-icons">menu</i>
     </button>
-  {/if}
-  <Drawer {colappseble} {open}>
-    <nav>
-      <Header>
-        <Link />
-      </Header>
-      <Navigation />
-    </nav>
-  </Drawer>
-</div>
+  {/if} -->
+<Drawer {colappseble} {open}>
+  <nav>
+    <Header>
+      <Link />
+    </Header>
+    <Navigation />
+  </nav>
+</Drawer>
 
+<!-- </div> -->
 <style type="text/scss">
   @import "Bar.scss";
 </style>

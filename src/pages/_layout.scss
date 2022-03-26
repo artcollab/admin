@@ -14,6 +14,7 @@ section {
 }
 #app {
   display: flex;
+  justify-self: center;
 }
 
 .container {
@@ -21,4 +22,18 @@ section {
   width: calc(100vw - 256px);
   height: 100%;
   justify-content: center;
+}
+
+@media only screen and (max-width: 840px) {
+  aside {
+    width: 0px;
+  }
+  .container {
+    width: 100%;
+  }
+
+  #app {
+    display: block;
+    justify-self: center;
+  }
 }
