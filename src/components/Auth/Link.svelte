@@ -9,7 +9,7 @@
     <Circle size={"16px"} />
   </div>
 {:else if $user}
-  <Title>Yoav Levi</Title>
+  <Title>{$user.name} {$user.surname}</Title>
   <Subtitle>{$user.email}</Subtitle>
 {:else}
   <Title>Hello!</Title>

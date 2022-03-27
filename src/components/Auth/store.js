@@ -23,7 +23,6 @@ export const login = async (email, password) => {
     .post(path, body)
     .json()
     .then((res) => {
-      console.log(res);
       const tokens = res.tokens;
       if (tokens.at) {
         storeCredentials(tokens);
@@ -53,7 +52,11 @@ async function authenticate() {
     });
     await verify
       .get(`${API_URL}/auth/verify`)
+      .json()
       .then((res) => {
+        if (!res.admin) {
+          logout();
+        }
         user.set(res);
       })
       .catch((err) => {
