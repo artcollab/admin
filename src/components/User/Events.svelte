@@ -31,21 +31,21 @@
 
 <div>
   <List twoLine avatarList singleSelection>
-    {#each options as item}
+    {#each options as { name, description }}
       <Item
-        on:SMUI:action={() => (selection = item.name)}
-        selected={selection === item.name}
+        on:SMUI:action={() => (selection = name)}
+        selected={selection === name}
       >
         <Graphic
-          style="background-image: url(https://place-hold.it/40x40?text={item.name
+          style="background-image: url(https://place-hold.it/40x40?text={name
             .slice(0, 20)
             .split(' ')
             .map((val) => val.substring(0, 1))
             .join('')}&fontsize=16);"
         />
         <Text>
-          <PrimaryText>{item.name.slice(0, 20)}</PrimaryText>
-          <SecondaryText>{item.description.slice(0, 20)}</SecondaryText>
+          <PrimaryText>{name.slice(0, 20)}</PrimaryText>
+          <SecondaryText>{description.slice(0, 20)}</SecondaryText>
         </Text>
         <slot />
       </Item>
