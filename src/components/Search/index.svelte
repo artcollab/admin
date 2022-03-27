@@ -12,9 +12,6 @@
   export let searchEl = (el) => {
     return el as string;
   };
-  $: if (results) {
-    console.log(results);
-  }
 
   $: if (search) {
     results = [];
