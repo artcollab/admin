@@ -25,7 +25,7 @@
     userId: number;
   };
   let users: User[] = [];
-  let rowsPerPage = 10;
+  let rowsPerPage = 6;
   let currentPage = 0;
   let selection = "";
 
