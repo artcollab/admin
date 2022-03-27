@@ -1,25 +1,28 @@
 <script lang="ts">
   import Textfield from "@smui/textfield";
   import Icon from "@smui/textfield/icon";
-  import HelperText from "@smui/textfield/helper-text";
+  import { results } from "./store.js";
 
   export let icon = "search";
   export let text = "Search User";
   let search = "";
 
   export let data: any[] = ["Hello", "Hi"];
-  export let results: any[] = [];
   export let searchEl = (el) => {
     return el as string;
   };
 
-  $: if (search) {
-    results = [];
-    data.forEach((el) => {
-      if (searchEl(el).toLowerCase().includes(search.toLowerCase())) {
-        results.push(el);
-      }
-    });
+  $: {
+    if (search) {
+      results.update((r) => []);
+      data.forEach((el) => {
+        if (searchEl(el).toLowerCase().includes(search.toLowerCase())) {
+          results.update((results) => [...results, el]);
+        }
+      });
+    } else {
+      results.update((r) => []);
+    }
   }
 </script>
 
