@@ -17,6 +17,7 @@
   } from "@smui/list";
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
+  import Menu from "#user/Menu.svelte";
 
   type User = {
     id: number;
@@ -57,6 +58,7 @@
 <div class="table">
   <DataTable>
     <Head>
+      <Menu />
       <Search data={users} {searchEl} />
     </Head>
     <Body>
