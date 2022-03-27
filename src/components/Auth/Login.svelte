@@ -11,8 +11,8 @@
   import Card from "@smui/card";
 
   let invalid = false;
-  let email = "user@example.com";
-  let password = "pass";
+  let email = "";
+  let password = "";
 </script>
 
 <div class="login">

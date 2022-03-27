@@ -1,4 +1,7 @@
 import { writable } from "svelte/store";
+import ky from "ky";
+
+export const API_URL = "http://localhost:8080";
 export const user = writable(null);
 export const authenticating = writable(true);
 export const logout = () => {
@@ -6,31 +9,59 @@ export const logout = () => {
   authenticate();
 };
 
-export const login = (email, password) => {
+export const login = async (email, password) => {
   authenticating.set(true);
-  if (email === "user@example.com" && password === "pass") {
-    const user = { email, token: "abcdefg" };
-    storeCredentials(user);
-    // we're delaying authentication to simulate realworld timings
-    setTimeout(authenticate, 500);
-  } else {
-    authenticating.set(false);
-    console.error("wrong email or password");
-  }
+  const path = `${API_URL}/auth/login`;
+  const body = {
+    json: {
+      email: email,
+      password: password,
+    },
+  };
+
+  await ky
+    .post(path, body)
+    .json()
+    .then((res) => {
+      console.log(res);
+      const tokens = res.tokens;
+      if (tokens.at) {
+        storeCredentials(tokens);
+      }
+    })
+    .catch((err) => {
+      authenticating.set(false);
+      console.error(err);
+    });
+  authenticate();
 };
 
 // we're delaying authentication to simulate realworld timings
 setTimeout(authenticate, 500);
 
-function authenticate() {
-  /**
-   * Insecure example!
-   * In production, a token should be stored in localStorage/cookie
-   * and sent to an auth server for verification.
-   * */
-  user.set(getCredentials());
-
-  // we need to inform other components that we're no longer authenticating
+async function authenticate() {
+  const tokens = getCredentials();
+  if (tokens) {
+    const verify = ky.extend({
+      hooks: {
+        beforeRequest: [
+          (request) => {
+            request.headers.set("Authorization", `Bearer ${tokens.at}`);
+          },
+        ],
+      },
+    });
+    await verify
+      .get(`${API_URL}/auth/verify`)
+      .then((res) => {
+        user.set(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    user.set(null);
+  }
   authenticating.set(false);
 }
 
