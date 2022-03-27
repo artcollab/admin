@@ -1,0 +1,12 @@
+@use '@material/typography/mdc-typography';
+@use '@material/typography/index' as typography;
+
+.card {
+  height: 50vh;
+  width: 50vw;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

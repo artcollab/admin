@@ -1,11 +1,5 @@
 <script lang="ts">
-  import DataTable, {
-    Head,
-    Body,
-    Row,
-    Cell,
-    Pagination,
-  } from "@smui/data-table";
+  import DataTable, { Head, Body, Pagination } from "@smui/data-table";
   import IconButton from "@smui/icon-button";
   import List, {
     Item,
@@ -17,6 +11,8 @@
   } from "@smui/list";
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
+  import { goto } from "@roxi/routify";
+  import { user } from "#components/Auth/store";
 
   type User = {
     id: number;
@@ -61,9 +57,12 @@
     </Head>
     <Body>
       <List twoLine avatarList singleSelection>
-        {#each slice as { title }}
+        {#each slice as { title, id }}
           <Item
-            on:SMUI:action={() => (selection = title)}
+            on:SMUI:action={() => {
+              selection = title;
+              $goto(`/users/${title.slice(0, 5)}`);
+            }}
             selected={selection === title}
           >
             <Graphic
