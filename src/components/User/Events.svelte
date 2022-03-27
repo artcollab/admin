@@ -30,7 +30,7 @@
 </script>
 
 <div>
-  <List twoLine avatarList singleSelection>
+  <List twoLine avatarList nonInteractive>
     {#each options as { name, description }}
       <Item
         on:SMUI:action={() => (selection = name)}

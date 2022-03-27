@@ -17,7 +17,6 @@
   } from "@smui/list";
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
-  import Menu from "#user/Menu.svelte";
 
   type User = {
     id: number;
@@ -58,7 +57,6 @@
 <div class="table">
   <DataTable>
     <Head>
-      <Menu />
       <Search data={users} {searchEl} />
     </Head>
     <Body>
@@ -79,7 +77,7 @@
               <PrimaryText>{title.slice(0, 20)}</PrimaryText>
               <SecondaryText>{title.slice(0, 5)}</SecondaryText>
             </Text>
-            <Meta class="material-icons">info</Meta>
+            <Meta class="material-icons">menu</Meta>
           </Item>
         {/each}
       </List>
@@ -122,7 +120,3 @@
     </Pagination>
   </DataTable>
 </div>
-
-<style lang="scss">
-  @import "index.scss";
-</style>
