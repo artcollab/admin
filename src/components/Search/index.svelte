@@ -4,7 +4,7 @@
   import HelperText from "@smui/textfield/helper-text";
 
   export let icon = "search";
-  export let text = "search";
+  export let text = "Search User";
   let search = "";
 
   export let data: any[] = ["Hello", "Hi"];
@@ -27,9 +27,8 @@
 </script>
 
 <div>
-  <Textfield variant="filled" bind:value={search} label="Trailing Icon">
+  <Textfield variant="filled" bind:value={search} label={text}>
     <Icon class="material-icons" slot="trailingIcon">{icon}</Icon>
-    <HelperText slot="helper">{text}</HelperText>
   </Textfield>
 </div>
 
