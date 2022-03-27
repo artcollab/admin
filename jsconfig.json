@@ -5,6 +5,7 @@
     "paths": {
       "#components/*": ["./src/components/*"],
       "#auth/*": ["./src/components/Auth/*"],
+      "#search/*": ["./src/components/Search/*"],
       "#navbar/*": ["./src/components/Navbar/*"],
       "#pages/*": ["./src/pages/*"],
       "#graph/*": ["./src/components/Graph/*"],
