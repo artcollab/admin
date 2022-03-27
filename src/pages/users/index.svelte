@@ -28,6 +28,7 @@
   let rowsPerPage = 10;
   let currentPage = 0;
   let selection = "";
+
   $: contentLength = $results.length ? $results.length : users.length;
   $: start = currentPage * rowsPerPage;
   $: end = Math.min(start + rowsPerPage, contentLength);
