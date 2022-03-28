@@ -20,6 +20,7 @@
   let rowsPerPage = 6;
   let currentPage = 0;
   let selection = "";
+  const at = getCredentials().at;
 
   $: contentLength = $results.length ? $results.length : users.length;
   $: start = currentPage * rowsPerPage;
@@ -41,10 +42,7 @@
       hooks: {
         beforeRequest: [
           (request) => {
-            request.headers.set(
-              "Authorization",
-              `Bearer ${getCredentials().at}`
-            );
+            request.headers.set("Authorization", `Bearer ${at}`);
           },
         ],
       },
