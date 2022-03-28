@@ -68,7 +68,7 @@ async function authenticate() {
   authenticating.set(false);
 }
 
-function getCredentials() {
+export function getCredentials() {
   const cred = localStorage.getItem("user");
   return cred && JSON.parse(cred);
 }
