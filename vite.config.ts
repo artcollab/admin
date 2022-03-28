@@ -2,6 +2,8 @@ import { appConfig } from "./package.json";
 import viteMainJs from "vite-main-js";
 import autoPreprocess from "svelte-preprocess";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
+import tsconfigPaths from "vite-tsconfig-paths";
+
 const { port } = appConfig;
 const production = process.env.NODE_ENV === "production";
 module.exports = {
@@ -17,22 +19,9 @@ module.exports = {
   },
   resolve: {
     dedupe: ["@roxi/routify"],
-    alias: [
-      { find: "#components", replacement: "/src/components" },
-      { find: "#auth", replacement: "/src/components/Auth" },
-      { find: "#search", replacement: "/src/components/Search" },
-      { find: "#user", replacement: "/src/components/User" },
-      { find: "#navbar", replacement: "/src/components/Navbar" },
-      { find: "#graph", replacement: "/src/components/Graph" },
-      { find: "#models", replacement: "/src/models" },
-      { find: "#progress", replacement: "/src/components/Progress" },
-      { find: "#pages", replacement: "/src/pages" },
-      { find: "#theme", replacement: "/src/theme" },
-      { find: "#routify", replacement: "/.routify" },
-      { find: "#sb", replacement: "/src/stories" },
-    ],
   },
   plugins: [
+    tsconfigPaths(),
     viteMainJs(),
     svelte({
       preprocess: [

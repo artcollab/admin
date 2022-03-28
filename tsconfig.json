@@ -19,6 +19,20 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "paths": {
+      "#components/*": ["./src/components/*"],
+      "#auth/*": ["./src/components/Auth/*"],
+      "#search/*": ["./src/components/Search/*"],
+      "#navbar/*": ["./src/components/Navbar/*"],
+      "#pages/*": ["./src/pages/*"],
+      "#graph/*": ["./src/components/Graph/*"],
+      "#models/*": ["./src/models/*"],
+      "#user/*": ["./src/components/User/*"],
+      "#progress/*": ["./src/components/Progress/*"],
+      "#theme/*": ["./src/theme/*"],
+      "#sb/*": ["./src/stories/*"],
+      "#routify/*": ["./.routify/*"]
+    },
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.
      * Disable checkJs if you'd like to use dynamic types in JS.
