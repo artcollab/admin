@@ -7,6 +7,7 @@ type User = {
   surname: string;
   username: string;
   profileID: string;
+  admin?: boolean;
   createdAt?: string;
   updatedAt?: string;
 };

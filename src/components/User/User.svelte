@@ -1,7 +1,7 @@
 <script lang="ts">
   import Avatar from "svelte-avatar";
   import type User from "#models/User";
-
+  import { goto } from "@roxi/routify";
   import Card from "@smui/card";
   import IconButton from "@smui/icon-button";
   import LayoutGrid, { Cell } from "@smui/layout-grid";
@@ -10,6 +10,7 @@
   import HelperText from "@smui/textfield/helper-text";
   import FormField from "@smui/form-field";
   import Checkbox from "@smui/checkbox";
+  import { auth } from "#auth/store";
 
   export let user: User;
   let _user: User;
@@ -23,6 +24,27 @@
       surname: "",
     };
   }
+  const action = () => {
+    $goto(history.back());
+  };
+  const remove = async () => {
+    await auth()
+      .post(`${import.meta.env.VITE_API_URL}/users/remove`, {
+        json: { user_id: user.id },
+      })
+      .then((res) => {
+        if (res.status == 200) {
+          action();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const save = () => {
+    user.name = _user.name ? _user.name : user.name;
+    user.surname = _user.surname ? _user.surname : user.surname;
+  };
 </script>
 
 <div class="card">
@@ -41,8 +63,14 @@
           </h3>
         </Cell>
         <Cell span={4}>
-          <IconButton class="material-icons">save</IconButton>
-          <IconButton class="material-icons">delete</IconButton>
+          <div class="right">
+            <IconButton
+              class="material-icons"
+              on:click={() => {
+                remove();
+              }}>delete</IconButton
+            >
+          </div>
         </Cell>
         <Cell span={6}>
           <Textfield type="name" bind:value={_user.name} label={user.name}>
@@ -59,6 +87,17 @@
             <Icon class="material-icons" slot="leadingIcon">perm_identity</Icon>
             <HelperText slot="helper">Surname</HelperText>
           </Textfield>
+        </Cell>
+        <Cell span={6}>
+          <FormField>
+            <Checkbox bind:checked={user.admin} />
+            <span slot="label"> admin </span>
+          </FormField>
+        </Cell>
+        <Cell span={6}>
+          <div class="right">
+            <IconButton class="material-icons">save</IconButton>
+          </div>
         </Cell>
       </LayoutGrid>
     {:else}

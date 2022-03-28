@@ -15,6 +15,7 @@
   import { auth } from "#components/Auth/store";
   import type User from "#models/User.ts";
   import Circle from "#progress/Circle.svelte";
+
   let users: User[] = [];
   let rowsPerPage = 6;
   let currentPage = 0;
