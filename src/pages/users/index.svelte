@@ -13,7 +13,7 @@
   import { results } from "#search/store.js";
   import { goto } from "@roxi/routify";
   import { getCredentials } from "#components/Auth/store";
-  import User from "#models/User.ts";
+  import type User from "#models/User.ts";
   import Circle from "#progress/Circle.svelte";
   import ky from "ky";
   let users: User[] = [];
