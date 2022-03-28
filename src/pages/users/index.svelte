@@ -12,13 +12,18 @@
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
   import { goto } from "@roxi/routify";
-  import { user } from "#components/Auth/store";
+  import { getCredentials, API_URL } from "#components/Auth/store";
+  import ky from "ky";
 
   type User = {
-    id: number;
-    title: string;
-    completed: boolean;
-    userId: number;
+    id: string;
+    email: string;
+    name: string;
+    surname: string;
+    username: string;
+    profileID: string;
+    createdAt: string;
+    updatedAt: string;
   };
   let users: User[] = [];
   let rowsPerPage = 6;
@@ -36,18 +41,41 @@
   $: if (currentPage > lastPage) {
     currentPage = lastPage;
   }
-
-  if (typeof fetch !== "undefined") {
-    fetch(
-      "https://gist.githubusercontent.com/hperrin/e24a4ebd9afdf2a8c283338ae5160a62/raw/dcbf8e6382db49b0dcab70b22f56b1cc444f26d4/todos.json"
-    )
-      .then((response) => response.json())
-      .then((json) => (users = json.slice(0, 197)));
-  }
-
   let searchEl = (el) => {
-    return el.title as string;
+    return el.username as string;
   };
+
+  const getUsers = async () => {
+    const getUsersAuth = ky.extend({
+      hooks: {
+        beforeRequest: [
+          (request) => {
+            request.headers.set(
+              "Authorization",
+              `Bearer ${getCredentials().at}`
+            );
+          },
+        ],
+      },
+    });
+    await getUsersAuth
+      .get(`${API_URL}/users`)
+      .json()
+      .then((res: User[]) => {
+        users = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  getUsers();
+  // if (typeof fetch !== "undefined") {
+  //   fetch(
+  //     "https://gist.githubusercontent.com/hperrin/e24a4ebd9afdf2a8c283338ae5160a62/raw/dcbf8e6382db49b0dcab70b22f56b1cc444f26d4/todos.json"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => (users = json.slice(0, 197)));
+  // }
 </script>
 
 <div class="table">
@@ -57,24 +85,23 @@
     </Head>
     <Body>
       <List twoLine avatarList singleSelection>
-        {#each slice as { title, id }}
+        {#each slice as user}
           <Item
             on:SMUI:action={() => {
-              selection = title;
-              $goto(`/users/${title.slice(0, 5)}`);
+              selection = user.username;
+              $goto(`/users/${user.username}`);
             }}
-            selected={selection === title}
+            selected={selection === user.username}
           >
             <Graphic
-              style="background-image: url(https://place-hold.it/40x40?text={title
-                .slice(0, 5)
-                .split(' ')
-                .map((val) => val.substring(0, 1))
-                .join('')}&fontsize=16);"
+              style="background-image: url(https://place-hold.it/40x40?text={user.name.slice(
+                0,
+                1
+              ) + user.surname.slice(0, 1)}&fontsize=16);"
             />
             <Text>
-              <PrimaryText>{title.slice(0, 20)}</PrimaryText>
-              <SecondaryText>{title.slice(0, 5)}</SecondaryText>
+              <PrimaryText>{user.username}</PrimaryText>
+              <SecondaryText>{user.name} {user.surname}</SecondaryText>
             </Text>
             <Meta class="material-icons">menu</Meta>
           </Item>
