@@ -12,7 +12,7 @@
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
   import { goto } from "@roxi/routify";
-  import { getCredentials, API_URL } from "#components/Auth/store";
+  import { getCredentials } from "#components/Auth/store";
   import ky from "ky";
 
   type User = {
@@ -59,7 +59,7 @@
       },
     });
     await getUsersAuth
-      .get(`${API_URL}/users`)
+      .get(`${import.meta.env.VITE_API_URL}/users`)
       .json()
       .then((res: User[]) => {
         users = res;

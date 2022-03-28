@@ -1,7 +1,6 @@
 import { writable } from "svelte/store";
 import ky from "ky";
 
-export const API_URL = "http://localhost:8080";
 export const user = writable(null);
 export const authenticating = writable(true);
 export const logout = () => {
@@ -11,7 +10,7 @@ export const logout = () => {
 
 export const login = async (email, password) => {
   authenticating.set(true);
-  const path = `${API_URL}/auth/login`;
+  const path = `${import.meta.env.VITE_API_URL}/auth/login`;
   const body = {
     json: {
       email: email,
@@ -51,7 +50,7 @@ async function authenticate() {
       },
     });
     await verify
-      .get(`${API_URL}/auth/verify`)
+      .get(`${import.meta.env.VITE_API_URL}/auth/verify`)
       .json()
       .then((res) => {
         if (!res.admin) {
