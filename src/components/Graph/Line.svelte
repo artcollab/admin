@@ -1,10 +1,10 @@
 <script>
   import Line from "svelte-chartjs/src/Line.svelte";
   export let data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["January", "February", "March"],
     datasets: [
       {
-        label: "My First dataset",
+        label: "Posts",
         fill: true,
         lineTension: 0.3,
         backgroundColor: "rgba(225, 204,230, .3)",
@@ -25,7 +25,7 @@
         data: [65, 59, 80, 81, 56, 55, 40],
       },
       {
-        label: "My Second dataset",
+        label: "Likes",
         fill: true,
         lineTension: 0.3,
         backgroundColor: "rgba(184, 185, 210, .3)",
