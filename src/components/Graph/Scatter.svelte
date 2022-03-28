@@ -150,8 +150,7 @@
           position: "bottom",
           ticks: {
             userCallback: function (tick) {
-              var remain =
-                tick / Math.pow(10, Math.floor(Chart.helpers.log10(tick)));
+              var remain = tick;
               if (remain === 1 || remain === 2 || remain === 5) {
                 return tick.toString() + "Hz";
               }
