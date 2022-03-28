@@ -66,6 +66,7 @@
     "smui-theme": "^6.0.0-beta.15",
     "spassr": "^2.6.0",
     "svelte": "^3.46.4",
+    "svelte-avatar": "^1.1.1",
     "svelte-chartjs": "^1.1.4",
     "svelte-hmr": "^0.14.11",
     "svelte-loader": "^3.1.2",

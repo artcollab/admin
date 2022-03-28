@@ -8,6 +8,18 @@ export const logout = () => {
   authenticate();
 };
 
+export function auth() {
+  const at = getCredentials().at;
+  return ky.extend({
+    hooks: {
+      beforeRequest: [
+        (request) => {
+          request.headers.set("Authorization", `Bearer ${at}`);
+        },
+      ],
+    },
+  });
+}
 export const login = async (email, password) => {
   authenticating.set(true);
   const path = `${import.meta.env.VITE_API_URL}/auth/login`;

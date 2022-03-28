@@ -12,15 +12,13 @@
   import Search from "#search/index.svelte";
   import { results } from "#search/store.js";
   import { goto } from "@roxi/routify";
-  import { getCredentials } from "#components/Auth/store";
+  import { auth } from "#components/Auth/store";
   import type User from "#models/User.ts";
   import Circle from "#progress/Circle.svelte";
-  import ky from "ky";
   let users: User[] = [];
   let rowsPerPage = 6;
   let currentPage = 0;
   let selection = "";
-  const at = getCredentials().at;
 
   $: contentLength = $results.length ? $results.length : users.length;
   $: start = currentPage * rowsPerPage;
@@ -38,16 +36,7 @@
   };
 
   const getUsers = async () => {
-    const getUsersAuth = ky.extend({
-      hooks: {
-        beforeRequest: [
-          (request) => {
-            request.headers.set("Authorization", `Bearer ${at}`);
-          },
-        ],
-      },
-    });
-    await getUsersAuth
+    await auth()
       .get(`${import.meta.env.VITE_API_URL}/users`)
       .json()
       .then((res: User[]) => {
