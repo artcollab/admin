@@ -31,11 +31,9 @@ export const login = async (email, password) => {
       authenticating.set(false);
       console.error(err);
     });
-  authenticate();
 };
 
-// we're delaying authentication to simulate realworld timings
-setTimeout(authenticate, 500);
+authenticate();
 
 async function authenticate() {
   const tokens = getCredentials();
