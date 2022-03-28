@@ -24,6 +24,7 @@ module.exports = {
       { find: "#user", replacement: "/src/components/User" },
       { find: "#navbar", replacement: "/src/components/Navbar" },
       { find: "#graph", replacement: "/src/components/Graph" },
+      { find: "#models", replacement: "/src/models" },
       { find: "#progress", replacement: "/src/components/Progress" },
       { find: "#pages", replacement: "/src/pages" },
       { find: "#theme", replacement: "/src/theme" },

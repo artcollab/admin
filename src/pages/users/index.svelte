@@ -13,19 +13,9 @@
   import { results } from "#search/store.js";
   import { goto } from "@roxi/routify";
   import { getCredentials } from "#components/Auth/store";
+  import User from "#models/User.ts";
   import Circle from "#progress/Circle.svelte";
   import ky from "ky";
-
-  type User = {
-    id: string;
-    email: string;
-    name: string;
-    surname: string;
-    username: string;
-    profileID: string;
-    createdAt: string;
-    updatedAt: string;
-  };
   let users: User[] = [];
   let rowsPerPage = 6;
   let currentPage = 0;
