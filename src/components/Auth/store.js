@@ -31,6 +31,7 @@ export const login = async (email, password) => {
       authenticating.set(false);
       console.error(err);
     });
+  authenticate();
 };
 
 authenticate();
