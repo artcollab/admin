@@ -12,7 +12,9 @@
     <Cell span={12}>
       <Card>
         <Content>
-          <div class="mdc-typography--body1">Woah this is a message!</div>
+          <div class="mdc-typography--body1">
+            Hello admin, welcome to the control panel.
+          </div>
         </Content>
       </Card>
     </Cell>
