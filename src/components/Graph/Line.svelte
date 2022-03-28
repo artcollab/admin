@@ -22,7 +22,7 @@
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [3, 6, 10],
       },
       {
         label: "Likes",
@@ -43,7 +43,7 @@
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [28, 48, 40, 19, 86, 27, 90],
+        data: [2, 5, 4],
       },
     ],
   };
